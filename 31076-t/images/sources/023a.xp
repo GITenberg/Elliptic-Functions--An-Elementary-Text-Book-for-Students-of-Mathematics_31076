@@ -1,0 +1,33 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P mid_sph(const P& arg1, const P& arg2)
+{
+  P tmp(0.5*(arg1 + arg2));
+  return (1.0/norm(tmp))*tmp;
+}
+
+int main()
+{
+  picture(P(-0.875,-0.75), P(0.75,1), "1.5 x 1.615in");
+
+  begin();
+
+  camera.at(P(3,1.5,1));
+  Sphere S;
+  P ptA(1,0,0), ptB(sph(1, M_PI_4, M_PI/3)), ptC(sph(1, M_PI/6, M_PI/15));
+
+  front_triangle(ptA, ptB, ptC, S);
+
+  label(ptA, P(-2,-2), "$A$", bl);
+  label(ptB, P( 2, 2), "$B$", tr);
+  label(ptC, P( 2,-2), "$C$", br);
+
+  label(mid_sph(ptA, ptB), P(-2,2), "$\\mu$", l);
+  label(mid_sph(ptA, ptC), P( 0,-4), "$\\phi$", b);
+  label(mid_sph(ptC, ptB), P( 4,0), "$\\psi$", r);
+
+  tikz_format();
+  end();
+}

@@ -1,0 +1,47 @@
+%% Generated from 023a.xp on Tue Dec  8 12:38:19 EST 2009 by
+%% ePiX-1.2.6
+%% 
+%%   Cartesian bounding box: [-0.875,0.75] x [-0.75,1]
+%%   Actual size: 1.5 x 1.615in
+%%   Figure offset: left by 0in, down by 0in
+%% 
+%% usepackages tikz
+%% 
+\xdefinecolor{rgb_000000}{rgb}{0,0,0}%
+\begin{tikzpicture}
+\pgfsetlinewidth{0.4pt}
+\useasboundingbox (0in,0in) rectangle (1.5in,1.615in);
+\draw (0.260995in,0.379819in)--(0.274668in,0.419414in)--
+  (0.290487in,0.462269in)--(0.308645in,0.508433in)--
+  (0.329312in,0.557877in)--(0.35262in,0.610468in)--
+  (0.378644in,0.665956in)--(0.407386in,0.72396in)--
+  (0.438758in,0.783963in)--(0.472572in,0.84532in)--
+  (0.508537in,0.907278in)--(0.546263in,0.969014in)--
+  (0.585282in,1.02968in)--(0.625066in,1.08844in)--
+  (0.665068in,1.14456in)--(0.704747in,1.19741in)--
+  (0.743603in,1.24649in)--(0.781203in,1.29149in)--
+  (0.817196in,1.33225in)--(0.851317in,1.36875in)--
+  (0.883391in,1.4011in)--(0.913323in,1.42949in)--
+  (0.941086in,1.45419in)--(0.966709in,1.4755in)--(0.990262in,1.49376in);
+\draw (0.990262in,1.49376in)--(0.989028in,1.46473in)--
+  (0.98721in,1.43174in)--(0.984742in,1.3946in)--
+  (0.981567in,1.35322in)--(0.97764in,1.30759in)--
+  (0.972932in,1.25786in)--(0.967436in,1.20428in)--
+  (0.96117in,1.14729in)--(0.954175in,1.08741in)--
+  (0.94652in,1.02531in)--(0.938294in,0.961702in)--
+  (0.929602in,0.897365in)--(0.920563in,0.833058in)--
+  (0.911296in,0.769503in)--(0.901922in,0.707349in)--
+  (0.89255in,0.647148in)--(0.883281in,0.589341in);
+\draw (0.883281in,0.589341in)--(0.824183in,0.567135in)--
+  (0.76369in,0.544859in)--(0.702405in,0.522762in)--
+  (0.640993in,0.501105in)--(0.580144in,0.480142in)--
+  (0.520546in,0.460112in)--(0.462845in,0.441224in)--
+  (0.407618in,0.42365in)--(0.355343in,0.407515in)--
+  (0.306386in,0.392894in)--(0.260995in,0.379819in);
+\pgftext[at={\pgfpoint{0.233317in}{0.352148in}}] {\makebox(0,0)[tr]{\hbox{\color{rgb_000000}$A$}}}
+\pgftext[at={\pgfpoint{1.01794in}{1.52143in}}] {\makebox(0,0)[bl]{\hbox{\color{rgb_000000}$B$}}}
+\pgftext[at={\pgfpoint{0.910958in}{0.561671in}}] {\makebox(0,0)[tl]{\hbox{\color{rgb_000000}$C$}}}
+\pgftext[at={\pgfpoint{0.557604in}{1.05735in}}] {\makebox(0,0)[r]{\hbox{\color{rgb_000000}$\mu$}}}
+\pgftext[at={\pgfpoint{0.550147in}{0.414648in}}] {\makebox(0,0)[t]{\hbox{\color{rgb_000000}$\phi$}}}
+\pgftext[at={\pgfpoint{1.01311in}{1.11767in}}] {\makebox(0,0)[l]{\hbox{\color{rgb_000000}$\psi$}}}
+\end{tikzpicture}

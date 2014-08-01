@@ -1,0 +1,43 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+int main()
+{
+  picture(P(-1,0), P(1,1), "2.5 x 1.25in");
+
+  begin();
+
+  degrees();
+  double th(120), d_th(10);
+  P ptO(0,0), ptA(-1,0), ptB(1,0), ptC(0.4,0), ptP(cis(th)), ptP2(cis(th + d_th));
+
+  //  double phi(Acos(((ptP - ptB)|E_1)/norm(ptP - ptB)));
+  //  double phi2(Acos(((ptP2 - ptC)|E_1)/norm(ptP2 - ptC)));
+
+  line(ptA, ptB);
+  arc(ptO, 1, 0, 180);
+
+  line(ptO, ptP);
+  line(ptO, ptP2);
+
+  line(ptC, ptP);
+  line(ptC, ptP2);
+  line(ptB, ptP);
+
+  line(ptC, ptP);
+
+  arc_measure(ptB, ptP - ptB, -E_1, P(-4,2), "$\\phi$", l, 16);
+  arc_measure(ptC, ptP - ptC, -E_1, P(-2,2), "$\\phi_1$", l, 16);
+
+  label(ptA, P(0,-4), "$A$", b);
+  label(ptO, P(0,-4), "$O$", b);
+  label(ptC, P(0,-4), "$C$", b);
+  label(ptB, P(0,-4), "$B$", b);
+
+  label(ptP, P(0,2), "$P$", tl);
+  label(ptP2, P(-2,0), "$P'$", tl);
+
+  tikz_format();
+  end();
+}

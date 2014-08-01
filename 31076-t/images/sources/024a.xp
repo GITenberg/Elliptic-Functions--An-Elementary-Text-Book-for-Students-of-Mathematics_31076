@@ -1,0 +1,63 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P mid_sph(const P& arg1, const P& arg2, double th = 0.5)
+{
+  P tmp(arg1 + th*(arg2 - arg1));
+  return (1.0/norm(tmp))*tmp;
+}
+/*
+P arc_ray(const P& tail, const P& head, double th = 0.5)
+{
+  double tmax(th*Acos(tail|head));
+  P perp(head % tail);
+  perp *= 1/norm(perp);
+
+  return Cos(tmax)*tail + Sin(tmax)*perp;
+}
+*/
+
+const double thQ(M_PI_4);
+
+P ptP(1,0,0), ptQ(sph(1, thQ, 0)), ptC(0,0,1);
+P poleP(0,1,0), poleQ(ptC*ptQ);
+
+int main()
+{
+  picture(P(-1,-0.625), P(0.25,1.125), "1.25 x 1.75in");
+
+  begin();
+  camera.at(P(5,8,4)).range(10);
+  Sphere S;
+
+  P ptA(sph(1, 0, M_PI_4));
+  P ptG(-(ptA*poleQ)*poleQ), ptH(-(ptA*poleP)*poleQ);
+
+  P ptB1(mid_sph(ptH, ptQ)), ptB2(mid_sph(ptG, ptC, 0.25));
+
+  front_triangle(ptP, ptQ, ptC, S);
+
+  front_arc(ptA, ptG);
+  front_arc(ptA, ptH);
+
+  front_arc(ptA, ptB1);
+  front_arc(ptA, ptB2);
+
+  label(ptP, P(-2,-4), "$P$", b);
+  label(ptC, P( 2, 2), "$C$", tr);
+  label(ptQ, P( 2,-2), "$Q$", b);
+
+  label(ptA, P(-2,2), "$A$", tl);
+
+  label(ptB1, P(2,0), "$B$", br);
+  label(ptB2, P(2,0), "$B$", tr);
+  label(ptG, P(0,0), "$G$", r);
+  label(ptH, P(0,0), "$H$", r);
+
+  label(mid_sph(ptA, ptB1), P(-2,-2), "$\\mu$", bl);
+  label(mid_sph(ptA, ptC), P(-2, 2), "$\\phi$", tl);
+
+  tikz_format();
+  end();
+}

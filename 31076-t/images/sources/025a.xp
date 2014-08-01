@@ -1,0 +1,54 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P mid_sph(const P& arg1, const P& arg2, double th = 0.5)
+{
+  P tmp(arg1 + th*(arg2 - arg1));
+  return (1.0/norm(tmp))*tmp;
+}
+
+const double thQ(2*M_PI/3.2);
+
+P ptP(1,0,0), ptQ(sph(1, thQ, 0)), ptC(0,0,1);
+P poleP(0,1,0), poleQ(ptC*ptQ);
+
+int main()
+{
+  picture(P(-1,-1), P(1,1), "2 x 2in");
+
+  begin();
+  camera.at(P(4,8,2)).range(0);
+  Sphere S;
+
+  S.draw();
+  P ptA(sph(1, 0, M_PI/3));
+  P ptG(-(ptA*poleQ)*poleQ), ptH(-(ptA*poleP)*poleQ);
+
+  P ptB1(mid_sph(ptQ, ptC, 0.25)), ptB2(mid_sph(ptG, ptC, 0.25));
+
+  dashed();
+  back_line(ptQ, ptP);
+  back_line(ptA, poleP);
+  back_arc(ptC, -ptQ);
+
+  solid();
+  front_line(ptP, ptQ);
+  front_line(ptA, poleP);
+  front_arc(ptC, -ptQ);
+  front_triangle(ptP, ptQ, ptC, S);
+
+  front_triangle(ptA, ptB1, ptC);
+
+  label(ptP, P( 2,-4), "$P$", b);
+  label(ptC, P( 0, 4), "$C$", t);
+  label(ptQ, P( 0,-4), "$Q$", b);
+
+  label(ptA, P(0,-4), "$A$", b);
+  label(poleP, P(0,-4), "$D$", bl);
+
+  label(ptB1, P(2, 0), "$B$", tr);
+
+  tikz_format();
+  end();
+}
